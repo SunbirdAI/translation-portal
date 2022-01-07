@@ -73,11 +73,11 @@
                                         <select id="languageFrom" class="form-select"
                                                 aria-label="Language translated from">
                                             <option value="en" selected>English</option>
-                                            <option value="lg">Luganda</option>
+                                            <option value="lug">Luganda</option>
                                             <option value="lgg">Lugbara</option>
-                                            <option value="run">Runyakitara</option>
+                                            <option value="nyn">Runyakitara</option>
                                             <option value="ach">Acholi</option>
-                                            <option value="at">Ateso</option>
+                                            <option value="teo">Ateso</option>
                                         </select>
                                     </div>
                                 </div>
@@ -89,12 +89,12 @@
                                     <div class="col-auto">
                                         <select id="languageTo" class="form-select"
                                                 aria-label="Language to translate to">
-                                            <option value="lg" selected>Luganda</option>
+                                            <option value="lug" selected>Luganda</option>
                                             <option value="en">English</option>
                                             <option value="lgg">Lugbara</option>
-                                            <option value="run">Runyakitara</option>
+                                            <option value="nyn">Runyakitara</option>
                                             <option value="ach">Acholi</option>
-                                            <option value="at">Ateso</option>
+                                            <option value="teo">Ateso</option>
                                         </select>
                                     </div>
                                 </div>
@@ -402,21 +402,22 @@
 
         //getting language from
         let selectLanguageFrom = document.getElementById('languageFrom');
-        let selectLanguageFromtext = selectLanguageFrom.options[selectLanguageFrom.selectedIndex].value;
-
-        //getting data to translate
-        let dataToTranslate = document.getElementById("plainData").value;
+        let selectLanguageFromText = selectLanguageFrom.options[selectLanguageFrom.selectedIndex].value;
 
         //getting language to
         let selectLanguageTo = document.getElementById('languageTo');
         let selectLanguageToText = selectLanguageTo.options[selectLanguageTo.selectedIndex].value;
 
+        //getting data to translate
+        let dataToTranslate = document.getElementById("plainData").value;
+        dataToTranslate = `>>${selectLanguageToText}<<${dataToTranslate}`
+        console.log(dataToTranslate)
+
         let dataObj = {
             "sentence": dataToTranslate,
-            "source": selectLanguageFromtext,
+            "source": selectLanguageFromText,
             "target": selectLanguageToText
         }
-
 
         let dataObj2 = {
             "inputs": dataToTranslate
