@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
     <title>Sunbird Translate</title>
 
-    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
 
     <!-- core CSS -->
-    
-    <link href="css/styles.css" rel="stylesheet" />
+
+    <link href="css/styles.css" rel="stylesheet"/>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
@@ -23,428 +23,437 @@
 
 </head>
 <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
+<main class="flex-shrink-0">
 
-        <!-- ======= Header ======= -->
-        <header id="header" class="header fixed-top">
-            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <img src="images/logo.png" alt="">
-                </a>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="images/logo.png" alt="">
+            </a>
 
-                <nav id="navbar" class="navbar">
-                    <ul>
-                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
-                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
-            </div>
-        </header><!-- End Header -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
 
-        <!-- Header-->
-        <section id="hero" class="hero">
-            <header class="bg-dark py-5" style="background-image: url('images/backgroundImage.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-size: 100% 100%;">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="my-5 text-center text-xl-start pb-md-4">
-                                <h1 class="display-5 fw-bolder text-white mb-2 text-center">Sunbird Translate</h1>
-                                <p class="lead fw-normal mb-4 text-center" style="color: #ffaa28;">Machine translation service for Ugandan languages</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div class="container px-5 mt-5 py-3">
-                <div class="row gx-5">
-                    <div class="card col-md-12 px-0">
-                        <div class="card-header py-3" style="background-color: #282850;">
-                            <div class="row">
-                                
-                                <div class="col-md-6" style="border-right: 1px solid #fff;">
-                                    <div class="row">
-                                        <div class="col-auto text-white">From:</div>
-                                        <div class="col-auto">
-                                            <select id="languageFrom" class="form-select" aria-label="Language translated from">
-                                                <option value="en" selected>English</option>
-                                                <option value="lg">Luganda</option>
-                                                <option value="lgg">Lugbara</option>
-                                                <option value="run">Runyakitara</option>
-                                                <option value="ach">Acholi</option>
-                                                <option value="at">Ateso</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-auto text-white">To:</div>
-                                        <div class="col-auto">
-                                            <select id="languageTo" class="form-select" aria-label="Language to translate to">
-                                                <option value="lg" selected>Luganda</option>
-                                                <option value="en">English</option>
-                                                <option value="lgg">Lugbara</option>
-                                                <option value="run">Runyakitara</option>
-                                                <option value="ach">Acholi</option>
-                                                <option value="at">Ateso</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="row">
-                                
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <textarea id="plainData" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px;"></textarea>
-                                        <label for="floatingTextarea2">Enter Text</label>
-                                    </div>
-                                    <div class="d-flex justify-content-between my-3">
-                                        <button type="button" class="btn btn-primary btn-md" onclick="sendData()">Translate</button>
-                                        <button type="button" class="btn-close btn-sm px-3" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <textarea id="translatedData" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px;"></textarea>
-                                        <label for="floatingTextarea2">...</label>
-                                    </div>
-                                    <div class="d-flex justify-content-between my-3">
-                                        <a href="#" class="btn btn-light btn-md">Give Feedback on Translation</a>
-                                    </div>
-                                </div>
-
-                            </div>
+    <!-- Header-->
+    <section id="hero" class="hero">
+        <header class="bg-dark py-5"
+                style="background-image: url('images/backgroundImage.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-size: 100% 100%;">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start pb-md-4">
+                            <h1 class="display-5 fw-bolder text-white mb-2 text-center">Sunbird Translate</h1>
+                            <p class="lead fw-normal mb-4 text-center" style="color: #ffaa28;">Machine translation
+                                service for Ugandan languages</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
+        <div class="container px-5 mt-5 py-3">
+            <div class="row gx-5">
+                <div class="card col-md-12 px-0">
+                    <div class="card-header py-3" style="background-color: #282850;">
+                        <div class="row">
 
-        <!-- About section-->
-        <section class="pt-5" id="about">
-            <div class="container px-5 my-5 pb-md-4">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="images/ug-lang-map-768x608.png" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bolder" style="color: #282850;">African language technology </h2>
-                        <p class="lead fw-normal text-muted mb-0">Africa is a very linguistically diverse continent, with at least 1500 languages (compared to around 200 in Europe), for most of which no AI language technology has ever been developed. Almost all current effort on AI language technology is focused on English and a handful of other languages. To contribute to language resources in Africa we set out to collect parallel text sentences for the 5 top languages in Uganda sufficient to enable a start on the machine translation task for Ugandan languages...</p>
-                        <a href="https://sunbird.ai/2021/06/11/parallel-text-language-corpus-dataset-for-key-ugandan-languages/" class="btn btn-primary btn-md mt-3">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-5 pt-5">
-                <div class="row gx-5">
-                    <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0" style="color: #282850;">Languages our system can translate.</h2></div>
-                    <div class="col-lg-8">
-                        <div class="row gx-5 row-cols-1 row-cols-md-2">
-                            <div class="col mb-5 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">Luganda</h2>
-                                <p class="mb-0">The Ganda language or Luganda is a Bantu language spoken in the African Great Lakes region.</p>
+                            <div class="col-md-6" style="border-right: 1px solid #fff;">
+                                <div class="row">
+                                    <div class="col-auto text-white">From:</div>
+                                    <div class="col-auto">
+                                        <select id="languageFrom" class="form-select"
+                                                aria-label="Language translated from">
+                                            <option value="en" selected>English</option>
+                                            <option value="lg">Luganda</option>
+                                            <option value="lgg">Lugbara</option>
+                                            <option value="run">Runyakitara</option>
+                                            <option value="ach">Acholi</option>
+                                            <option value="at">Ateso</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col mb-5 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">English</h2>
-                                <p class="mb-0">English is widely considered to be the lingua franca of the world and is the standard language in a wide variety of fields.</p>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-auto text-white">To:</div>
+                                    <div class="col-auto">
+                                        <select id="languageTo" class="form-select"
+                                                aria-label="Language to translate to">
+                                            <option value="lg" selected>Luganda</option>
+                                            <option value="en">English</option>
+                                            <option value="lgg">Lugbara</option>
+                                            <option value="run">Runyakitara</option>
+                                            <option value="ach">Acholi</option>
+                                            <option value="at">Ateso</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col mb-5 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">Lugbara</h2>
-                                <p class="mb-0">Language of the Lugbara people. It is spoken in the West Nile region in northwestern Uganda.</p>
-                            </div>
-                            <div class="col mb-5 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">Runyakitara</h2>
-                                <p class="mb-0">A standardized language based on four closely related languages of western Uganda: Nyoro or Runyoro. Kiga (Chiga) or Rukiga. Nkore or Runyankole.</p>
-                            </div>
-                            <div class="col mb-5 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">Acholi</h2>
-                                <p class="mb-0">A Southern Luo dialect spoken by the Acholi people in the districts of Gulu, Kitgum and Pader in northern Uganda.</p>
-                            </div>
-                            <div class="col mb-md-0 h-100">
-                                <h2 class="fw-bold h5" style="color: #282850;">Ateso</h2>
-                                <p class="mb-0">An Eastern Nilotic language spoken by the Iteso people of Uganda and Kenya. It is part of the Teso–Turkana language cluster.</p>
-                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                    <div class="card-body p-4">
+                        <div class="row">
 
-        <!-- Features section-->
-        <section id="faq" class="faq py-5">
-            <div class="container">
-                <header class="section-header">
-                    <p>Frequently Asked Questions</p>
-                </header>
-
-                <div class="row">
-                    <div class="col-lg-6">
-
-                        <div class="accordion accordion-flush" id="faqlist1">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                                        When is my language coming to this platfrom?
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea id="plainData" class="form-control" placeholder="Leave a comment here"
+                                              id="floatingTextarea2" style="height: 200px;"></textarea>
+                                    <label for="floatingTextarea2">Enter Text</label>
+                                </div>
+                                <div class="d-flex justify-content-between my-3">
+                                    <button type="button" class="btn btn-primary btn-md" onclick="sendData()">
+                                        Translate
                                     </button>
-                                </h2>
-                                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                                    <div class="accordion-body">
-                                        Very soon...we mean very soon.
-                                    </div>
+                                    <button type="button" class="btn-close btn-sm px-3" aria-label="Close"></button>
                                 </div>
                             </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                                        How do you pick which languages to work on?
-                                    </button>
-                                </h2>
-                                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                                    <div class="accordion-body">
-                                       Well a couple of things like. Ease of speech...
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="accordion accordion-flush" id="faqlist2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
-                                        How can I contribute?
-                                    </button>
-                                </h2>
-                                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
-                                    <div class="accordion-body">
-                                        You can be a validator.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Contact preview section-->
-        <section id="contact" class="contact py-5">
-            <div class="container">
-                <header class="section-header">
-                    <p>Contact Us</p>
-                </header>
-
-                <div class="row gy-4">
-                    <div class="col-lg-6">
-                        <div class="row gy-4">
                             <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h3>Address</h3>
-                                    <p>Kampala, Uganda</p>
+                                <div class="form-floating">
+                                    <textarea id="translatedData" class="form-control"
+                                              placeholder="Leave a comment here" id="floatingTextarea2"
+                                              style="height: 200px;"></textarea>
+                                    <label for="floatingTextarea2">...</label>
+                                </div>
+                                <div class="d-flex justify-content-between my-3">
+                                    <a href="#" class="btn btn-light btn-md">Give Feedback on Translation</a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-telephone"></i>
-                                    <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-envelope"></i>
-                                    <h3>Email Us</h3>
-                                    <p>info@sunbird.ai</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-clock"></i>
-                                    <h3>Open Hours</h3>
-                                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
-
-                    <div class="col-lg-6">
-                        <form action="forms/contact.php" method="post" class="php-email-form">
-                            <div class="row gy-4">
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                    <button type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container my-5">
-                <!-- Call to action-->
-                <aside class="background-primary bg-gradient rounded-3 p-sm-5 p-4">
-                    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                        <div class="mb-4 mb-xl-0">
-                            <div class="fs-3 fw-bold text-white">Language translations, delivered to you.</div>
-                            <div class="text-white-50">Sign up for our newsletter for the latest updates.</div>
-                        </div>
-                        <div class="ms-xl-4">
-                            <div class="input-group mb-2">
-                                <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" />
-                                <button class="btn btn-outline-light" id="button-newsletter" type="button"><span style="color: #ffaa28;">Sign up</span></button>
-                            </div>
-                            <div class="small text-white-50">We care about privacy, and will never share your data.</div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-    
-    </main>
-
-    <!-- Footer-->
-    <footer class="py-4 mt-auto background-primary">
-        <div class="container px-3">
-            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-12">
-                    <p class="small m-0 text-white text-center">An African technology initiative to create open, practical AI systems for community benefit.</p>
-                    <p class="medium m-0 text-white py-2 text-center">Please <a href=""><span style="color: #ffaa28;">email us</span></a> to find out more</p>
-                    <div class="small m-0 text-white pt-2 text-center">Copyright &copy; Sunbird AI 2021</div>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- About section-->
+    <section class="pt-5" id="about">
+        <div class="container px-5 my-5 pb-md-4">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="images/ug-lang-map-768x608.png"
+                                           alt="..."/></div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bolder" style="color: #282850;">African language technology </h2>
+                    <p class="lead fw-normal text-muted mb-0">Africa is a very linguistically diverse continent, with at
+                        least 1500 languages (compared to around 200 in Europe), for most of which no AI language
+                        technology has ever been developed. Almost all current effort on AI language technology is
+                        focused on English and a handful of other languages. To contribute to language resources in
+                        Africa we set out to collect parallel text sentences for the 5 top languages in Uganda
+                        sufficient to enable a start on the machine translation task for Ugandan languages...</p>
+                    <a href="https://sunbird.ai/2021/06/11/parallel-text-language-corpus-dataset-for-key-ugandan-languages/"
+                       class="btn btn-primary btn-md mt-3">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-5 pt-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0" style="color: #282850;">Languages our
+                    system can translate.</h2></div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+                        <div class="col mb-5 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">Luganda</h2>
+                            <p class="mb-0">The Ganda language or Luganda is a Bantu language spoken in the African
+                                Great Lakes region.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">English</h2>
+                            <p class="mb-0">English is widely considered to be the lingua franca of the world and is the
+                                standard language in a wide variety of fields.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">Lugbara</h2>
+                            <p class="mb-0">Language of the Lugbara people. It is spoken in the West Nile region in
+                                northwestern Uganda.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">Runyakitara</h2>
+                            <p class="mb-0">A standardized language based on four closely related languages of western
+                                Uganda: Nyoro or Runyoro. Kiga (Chiga) or Rukiga. Nkore or Runyankole.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">Acholi</h2>
+                            <p class="mb-0">A Southern Luo dialect spoken by the Acholi people in the districts of Gulu,
+                                Kitgum and Pader in northern Uganda.</p>
+                        </div>
+                        <div class="col mb-md-0 h-100">
+                            <h2 class="fw-bold h5" style="color: #282850;">Ateso</h2>
+                            <p class="mb-0">An Eastern Nilotic language spoken by the Iteso people of Uganda and Kenya.
+                                It is part of the Teso–Turkana language cluster.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <!-- Features section-->
+    <section id="faq" class="faq py-5">
+        <div class="container">
+            <header class="section-header">
+                <p>Frequently Asked Questions</p>
+            </header>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+            <div class="row">
+                <div class="col-lg-6">
 
-    <!-- core JS-->
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+                    <div class="accordion accordion-flush" id="faqlist1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-1">
+                                    When is my language coming to this platfrom?
+                                </button>
+                            </h2>
+                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                                <div class="accordion-body">
+                                    Very soon...we mean very soon.
+                                </div>
+                            </div>
+                        </div>
 
-    <script type="text/javascript">
-        // async function sendData() {
-        //     //translated data
-        //     let dataFromModel = '';
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-2">
+                                    How do you pick which languages to work on?
+                                </button>
+                            </h2>
+                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                                <div class="accordion-body">
+                                    Well a couple of things like. Ease of speech...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        //     //getting language from
-        //     let selectLanguageFrom = document.getElementById('languageFrom');
-        //     let selectLanguageFromText = selectLanguageFrom.options[selectLanguageFrom.selectedIndex].value;
+                <div class="col-lg-6">
+                    <div class="accordion accordion-flush" id="faqlist2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq2-content-1">
+                                    How can I contribute?
+                                </button>
+                            </h2>
+                            <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                                <div class="accordion-body">
+                                    You can be a validator.
+                                </div>
+                            </div>
+                        </div>
 
-        //     //getting data to translate
-        //     let dataToTranslate = document.getElementById("plainData").value; 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        //     //getting language to
-        //     let selectLanguageTo = document.getElementById('languageTo');
-        //     let selectLanguageToText = selectLanguageTo.options[selectLanguageTo.selectedIndex].value;
 
-        //     let dataObj = {
-        //         "sentence": dataToTranslate,
-        //         "source": selectLanguageFromText,
-        //         "target": selectLanguageToText
-        //     }
+    <!-- Contact preview section-->
+    <section id="contact" class="contact py-5">
+        <div class="container">
+            <header class="section-header">
+                <p>Contact Us</p>
+            </header>
 
-        //     language_codes = {
-        //         "English": "en", "Luganda": "lug", "Runyankole": "nyn", 
-        //         "Acholi": "ach", "Ateso": "teo", "Lugbara": "lgg", "Luo": "luo"
-        //     }
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bi bi-geo-alt"></i>
+                                <h3>Address</h3>
+                                <p>Kampala, Uganda</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bi bi-telephone"></i>
+                                <h3>Call Us</h3>
+                                <p>+1 5589 55488 55</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bi bi-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p>info@sunbird.ai</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bi bi-clock"></i>
+                                <h3>Open Hours</h3>
+                                <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        //     if (selectLanguageFromText == "English")
-        //         dataToTranslate = ">>" + language_codes[selectLanguageToText] + "<<" + dataToTranslate
+                <div class="col-lg-6">
+                    <form action="forms/contact.php" method="post" class="php-email-form">
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
 
-        //     let dataObj2 = {
-        //         "inputs": dataToTranslate
-        //     }
+                            <div class="col-md-6 ">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                            </div>
 
-        //     postData(dataObj2)
-        //     .then(data => {
-        //         console.log(data);
-        //         //dataFromModel = data;
-        //     })
-        //     .catch((err) => {
-        //         console.log('error', err);
-        //     });
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                            </div>
 
-        //     //document.getElementById("translatedData").value = `${dataFromModel}`;
-        // }
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="6" placeholder="Message"
+                                          required></textarea>
+                            </div>
 
-        // async function postData(data) {
-        //     const response = await fetch('https://8c8jirboi0.execute-api.eu-west-1.amazonaws.com/prod/', {
-        //         method: 'POST',
-        //         mode: 'no-cors',
-        //         cache: 'no-cache',
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json'
-        //         },
-        //         redirect: 'follow',
-        //         referrerPolicy: 'no-referrer',
-        //         body: JSON.stringify(data)
-        //     })
-        //     return response
-        // }
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
 
-        async function sendData() {
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-            var raw = JSON.stringify({
-            "inputs": ">>ach<<My name is Isaac"
+        <div class="container my-5">
+            <!-- Call to action-->
+            <aside class="background-primary bg-gradient rounded-3 p-sm-5 p-4">
+                <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+                    <div class="mb-4 mb-xl-0">
+                        <div class="fs-3 fw-bold text-white">Language translations, delivered to you.</div>
+                        <div class="text-white-50">Sign up for our newsletter for the latest updates.</div>
+                    </div>
+                    <div class="ms-xl-4">
+                        <div class="input-group mb-2">
+                            <input class="form-control" type="text" placeholder="Email address..."
+                                   aria-label="Email address..." aria-describedby="button-newsletter"/>
+                            <button class="btn btn-outline-light" id="button-newsletter" type="button"><span
+                                    style="color: #ffaa28;">Sign up</span></button>
+                        </div>
+                        <div class="small text-white-50">We care about privacy, and will never share your data.</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer-->
+<footer class="py-4 mt-auto background-primary">
+    <div class="container px-3">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-12">
+                <p class="small m-0 text-white text-center">An African technology initiative to create open, practical
+                    AI systems for community benefit.</p>
+                <p class="medium m-0 text-white py-2 text-center">Please <a href=""><span style="color: #ffaa28;">email us</span></a>
+                    to find out more</p>
+                <div class="small m-0 text-white pt-2 text-center">Copyright &copy; Sunbird AI 2021</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- core JS-->
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+<script type="text/javascript">
+    async function sendData() {
+        //translated data
+        let dataFromModel = '';
+
+        //getting language from
+        let selectLanguageFrom = document.getElementById('languageFrom');
+        let selectLanguageFromtext = selectLanguageFrom.options[selectLanguageFrom.selectedIndex].value;
+
+        //getting data to translate
+        let dataToTranslate = document.getElementById("plainData").value;
+
+        //getting language to
+        let selectLanguageTo = document.getElementById('languageTo');
+        let selectLanguageToText = selectLanguageTo.options[selectLanguageTo.selectedIndex].value;
+
+        let dataObj = {
+            "sentence": dataToTranslate,
+            "source": selectLanguageFromtext,
+            "target": selectLanguageToText
+        }
+
+
+        let dataObj2 = {
+            "inputs": dataToTranslate
+        }
+
+        await postData(dataObj2)
+            .then(data => {
+                console.log(data);
+                dataFromModel = data[0]["generated_text"];
+            })
+            .catch((err) => {
+                console.log('error', err);
             });
 
-            var requestOptions = {
+        console.log(dataFromModel);
+
+        document.getElementById("translatedData").value = `${dataFromModel}`;
+    }
+
+    async function postData(data) {
+        console.log(data);
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Accept", 'application/json')
+        var raw = JSON.stringify(data);
+        var requestOptions = {
             method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
             headers: myHeaders,
             body: raw,
+            Accept: '*/*',
             redirect: 'follow'
-            };
-
-            fetch("https://8c8jirboi0.execute-api.eu-west-1.amazonaws.com/prod/", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
         }
-    </script>
+        const response = await fetch('https://8c8jirboi0.execute-api.eu-west-1.amazonaws.com/prod/', requestOptions);
+        return response.json();
+    }
+</script>
 </body>
 </html>
