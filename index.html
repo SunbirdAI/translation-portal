@@ -123,7 +123,7 @@
               <div class="form-floating">
                 <select id="languageFrom" class="form-select" aria-label="Language translated from" onChange="updateTargetLanguages()">
                   <option value="en" selected>English</option>
-                  <option value="mul">Acholi, Ateso, Luganda, Lugbara or Runyankore.</option>
+                  <option value="mul">Acholi, Ateso, Luganda, Lugbara or Runyankore</option>
                 </select>
                 <label for="languageFrom">From</label>
               </div>
@@ -336,7 +336,8 @@
 
   <script type="text/javascript">
     async function sendData() {
-      $('#translation-in-progress-spinner').show()
+      // Clear any translated text from the output panel.
+      $('#translatedData').val('');
 
       //translated data
       let dataFromModel = '';
@@ -351,8 +352,15 @@
 
       //getting data to translate
       let dataToTranslate = document.getElementById("sourceData").value;
+
+      // Don't do anything if the source text is empty or just spaces.
+      if (/^ *$/.test(dataToTranslate)) {
+        return;
+      }
+      // Add a tag specifying the target language.
       dataToTranslate = `>>${selectLanguageToText}<< ${dataToTranslate}`
-      console.log(dataToTranslate)
+
+      $('#translation-in-progress-spinner').show();
 
       let dataObj = {
         "sentence": dataToTranslate,
@@ -407,26 +415,29 @@
       }
     });
 
-
+    /* Update the target language options depending on the source language. */
     var preferredNonEnglishTarget = $("#languageTo").val();
-    var nonEnglishOptions = [['Acholi', 'ach'], ['Ateso', 'teo'], ['Luganda', 'lug'], ['Lugbara', 'lgg'], ['Runyankole', 'nyn']];
+    var nonEnglishOptions = [
+      ['Acholi', 'ach'],
+      ['Ateso', 'teo'],
+      ['Luganda', 'lug'],
+      ['Lugbara', 'lgg'],
+      ['Runyankole', 'nyn']
+    ];
 
     function updateTargetLanguages() {
       targetSelect = $("#languageTo");
-
       if ($("#languageFrom").val() == 'en') {
         targetSelect.empty()
-        for (const option of nonEnglishOptions){
+        for (const option of nonEnglishOptions) {
           isPreferred = (option[1] == preferredNonEnglishTarget);
           targetSelect.append(new Option(option[0], option[1], isPreferred, isPreferred));
-          console.log(option, isPreferred, preferredNonEnglishTarget);
         }
-      }
-      else {
+      } else {
         // Remember what the target language was before clearing the options.
         preferredNonEnglishTarget = $("#languageTo").val();
         targetSelect.empty()
-        targetSelect.append(new Option('English', 'en'));
+        targetSelect.append(new Option('English', 'en', true, true));
       }
     }
   </script>
