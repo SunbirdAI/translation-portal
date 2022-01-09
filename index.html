@@ -19,7 +19,6 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
@@ -102,14 +101,14 @@
     <section id="hero" class="hero" style="background-color: #282850;">
       <header class="header px-1 py-1" style="background-image: url('images/backgroundImage.png'); background-repeat: no-repeat; background-attachment: fixed;
       background-position: 0px -400px; background-size: 100% 100%;">
-        <div class="row justify-content-start mt-2 mb-2">
-          <div class="col-md-3 col-sm-12 mx-2 my-2">
+        <div class="row justify-content-start mt-2 mb-2 gx-0">
+          <div class="col-md-3 col-sm-12 mx-1 my-2">
             <a href="https://sunbird.ai" class="logo">
               <img src="images/logo.png" alt="Sunbird AI" id="logo-image">
             </a>
           </div>
           <div class="col-md-6 col-sm-12 text-center align-items-center" style="margin-top: 11px">
-            <h1 class="heading">Sunbird Translate</h1>
+            <h1 class="heading">Sunbird Translation</h1>
             <h2 class="subheading">Translate Ugandan languages</h2>
           </div>
         </div>
@@ -122,7 +121,7 @@
           <div class="col-md-6">
             <div class="language-select-area">
               <div class="form-floating">
-                <select id="languageFrom" class="form-select" aria-label="Language translated from">
+                <select id="languageFrom" class="form-select" aria-label="Language translated from" onChange="updateTargetLanguages()">
                   <option value="en" selected>English</option>
                   <option value="mul">Acholi, Ateso, Luganda, Lugbara or Runyankore.</option>
                 </select>
@@ -147,8 +146,8 @@
               <select id="languageTo" class="form-select" aria-label="Language to translate to" onChange="sendData()">
                 <option value="ach">Acholi</option>
                 <option value="teo">Ateso</option>
-                <option value="lgg">Lugbara</option>
                 <option value="lug" selected>Luganda</option>
+                <option value="lgg">Lugbara</option>
                 <option value="nyn">Runyankore</option>
               </select>
               <label for="languageTo">To</label>
@@ -323,7 +322,6 @@
   <!-- Vendor JS Files -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -409,10 +407,28 @@
       }
     });
 
-    /* Start with the loading spinner invisible. */
-    $('#translation-in-progress-spinner').hide()
 
-    /* TODO: Adjust which target languages are available, depending on the source language. */
+    var preferredNonEnglishTarget = $("#languageTo").val();
+    var nonEnglishOptions = [['Acholi', 'ach'], ['Ateso', 'teo'], ['Luganda', 'lug'], ['Lugbara', 'lgg'], ['Runyankole', 'nyn']];
+
+    function updateTargetLanguages() {
+      targetSelect = $("#languageTo");
+
+      if ($("#languageFrom").val() == 'en') {
+        targetSelect.empty()
+        for (const option of nonEnglishOptions){
+          isPreferred = (option[1] == preferredNonEnglishTarget);
+          targetSelect.append(new Option(option[0], option[1], isPreferred, isPreferred));
+          console.log(option, isPreferred, preferredNonEnglishTarget);
+        }
+      }
+      else {
+        // Remember what the target language was before clearing the options.
+        preferredNonEnglishTarget = $("#languageTo").val();
+        targetSelect.empty()
+        targetSelect.append(new Option('English', 'en'));
+      }
+    }
   </script>
 </body>
 
