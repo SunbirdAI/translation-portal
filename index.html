@@ -169,7 +169,7 @@
 
         <div class="row">
           <div>
-            <button class="btn btn-outline-secondary btn" type="button" data-bs-toggle="collapse" data-bs-target=".collapsible-section" aria-expanded="false" aria-controls="faq about">
+            <button class="btn btn-outline-secondary btn mt-2" type="button" data-bs-toggle="collapse" data-bs-target=".collapsible-section" aria-expanded="false" aria-controls="faq about">
               Find out more...
             </button>
           </div>
@@ -178,15 +178,13 @@
     </section>
 
     <!-- FAQ section-->
-    <section id="faq" class="faq collapse collapsible-section">
+    <section id="faq" class="faq collapse collapsible-section mt-4">
       <div class="container">
         <header class="section-header">
-          <p>Frequently asked questions</p>
+          <h5 class="fw-bolder px-3" style="color: #282850;">Frequently asked questions</h5>
         </header>
-
         <div class="row">
           <div class="col-lg-6">
-
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -353,26 +351,29 @@
       //getting data to translate
       let dataToTranslate = document.getElementById("sourceData").value;
 
-      // Don't do anything if the source text is empty or just spaces.
+      //getting the model
+      let model = ""
+      if ($("#languageFrom").val() == 'en') {
+        model = "en-mul"
+        // Add a tag specifying the target language
+        dataToTranslate = `>>${selectLanguageToText}<< ${dataToTranslate}`
+      } else {
+        model = "mul-en"
+      }
+
+      // Don't do anything if the source text is empty or just spaces
       if (/^ *$/.test(dataToTranslate)) {
         return;
       }
-      // Add a tag specifying the target language.
-      dataToTranslate = `>>${selectLanguageToText}<< ${dataToTranslate}`
 
       $('#translation-in-progress-spinner').show();
 
       let dataObj = {
-        "sentence": dataToTranslate,
-        "source": selectLanguageFromText,
-        "target": selectLanguageToText
-      }
-
-      let dataObj2 = {
+        "model": model,
         "inputs": dataToTranslate
       }
 
-      await postData(dataObj2)
+      await postData(dataObj)
         .then(data => {
           console.log(data);
           dataFromModel = data[0]["generated_text"];
