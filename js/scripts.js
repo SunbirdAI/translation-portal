@@ -137,6 +137,3 @@ const posFeedback = document.getElementById("feedback-good");
 const negFeedback = document.getElementById("feedback-bad");
 posFeedback.addEventListener("click", function(){sendFeedback("Good")}, false);
 negFeedback.addEventListener("click", function(){sendFeedback("Bad")}, false);
-
-
-

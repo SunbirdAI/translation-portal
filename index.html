@@ -23,6 +23,12 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 
+  <!-- Material You /-->
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/custom_styles.css">
   <style>
     #logo-image {
       max-height: 40px;
@@ -98,6 +104,9 @@
 
     <!-- Header-->
     <section id="hero" class="hero" style="background-color: #282850;">
+      
+      
+      
       <header class="header px-1 py-1" style="background-image: url('images/backgroundImage.png'); background-repeat: no-repeat; background-attachment: fixed;
       background-position: 0px -400px; background-size: 100% 100%;">
         <div class="row justify-content-start mt-2 mb-2 gx-0">
@@ -107,15 +116,22 @@
             </a>
           </div>
           <div class="col-md-6 col-sm-12 text-center align-items-center" style="margin-top: 11px">
-            <h1 class="heading">Sunbird Translation</h1>
-            <h2 class="subheading">Translate Ugandan languages</h2>
+            <h1 class="heading">Sunbird Translate</h1>
           </div>
-        </div>
+        </div> 
+      
+      
       </header>
-    </section>
+    </section> 
 
+    
+    
+    &nbsp;
     <section>
-      <div class="container-xl px-5 mt-5 py-1">
+
+      <!-- <div class="container-xl px-5 mt-5 py-1"> -->
+        <div class="mdc-card mdc-card--outlined">
+        &nbsp;
         <div class="row">
           <div class="col-md-6">
             <div class="language-select-area">
@@ -127,19 +143,26 @@
                 <label for="languageFrom">From</label>
               </div>
               <div class="form-floating">
-                <textarea class="form-control translation-text" id="sourceData" style="height: 200px;"></textarea>
+                <textarea class="form-control translation-text" id="sourceData" style="height: 200px; resize: none;"></textarea>
                 <label for="sourceData">Enter text</label>
               </div>
             </div>
             <div class="d-flex justify-content-between my-3">
+       
               <button type="button" class="btn btn-primary btn-lg" onclick="sendData()">
                 Translate
               </button>
+
+              <!-- <button class="mdc-button mdc-button--raised"" onclick="sendData()">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Translate</span>
+              </button> -->
+
+
               <div class="spinner-border" id="translation-in-progress-spinner" style="display: none" role="status">
               </div>
             </div>
           </div>
-
           <div class="col-md-6">
             <div class="form-floating">
               <select id="languageTo" class="form-select" aria-label="Language to translate to" onChange="sendData()">
@@ -152,8 +175,9 @@
               <label for="languageTo">To</label>
             </div>
             <div class="form-floating">
-              <textarea id="translatedData" class="form-control translation-text" style="height: 200px; background-color: #f8f9fa;"></textarea>
-              <label for="translatedData">Translation</label>
+              <textarea id="translatedData" class="form-control translation-text"
+               style="height: 200px; background-color: #f8f9fa; resize: none;" disabled="disabled">
+              </textarea>
             </div>
 
             <div class="feedback-label mt-3">
@@ -165,156 +189,11 @@
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div>
-            <button class="btn btn-outline-secondary btn mt-2" type="button" data-bs-toggle="collapse" data-bs-target=".collapsible-section" aria-expanded="false" aria-controls="faq about">
-              Find out more...
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ section-->
-    <section id="faq" class="faq collapse collapsible-section mt-4">
-      <div class="container">
-        <header class="section-header">
-          <h5 class="fw-bolder px-3" style="color: #282850;">Frequently asked questions</h5>
-        </header>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="accordion accordion-flush" id="faqlist1">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                    When is my language coming to this platfrom?
-                  </button>
-                </h2>
-                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body">
-                    Please let us know your feedback on which other languages would be useful.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                    Why have you provided this service?
-                  </button>
-                </h2>
-                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body">
-                    Sunbird AI is a non-profit based in Uganda, working on practical, open-source, artificial intelligence systems for social benefit. We believe that the ability to translate between local languages is important for many practical
-                    uses.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="accordion accordion-flush" id="faqlist2">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
-                    How can I contribute?
-                  </button>
-                </h2>
-                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
-                  <div class="accordion-body">
-                    TODO
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
-                    How can I contact the team with questions or feedback?
-                  </button>
-                </h2>
-                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
-                  <div class="accordion-body">
-                    Please email us at <a href="mailto:info@sunbird.ai">info@sunbird.ai</a>.
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About section-->
-    <section id="about" class="pt-5 collapse collapsible-section">
-      <div class="container px-5 my-5 pb-md-4">
-        <div class="row gx-5 align-items-center">
-          <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="images/ug-lang-map-768x608.png" alt="..." />
-          </div>
-          <div class="col-lg-6">
-            <h2 class="fw-bolder" style="color: #282850;">African language technology </h2>
-            <p class="lead fw-normal text-muted mb-0">Africa is a very linguistically diverse continent, with at
-              least 1500 languages (compared to around 200 in Europe), for most of which no AI language
-              technology has ever been developed. Almost all current effort on AI language technology is
-              focused on English and a handful of other languages. To contribute to language resources in
-              Africa we set out to collect parallel text sentences for the 5 top languages in Uganda
-              sufficient to enable a start on the machine translation task for Ugandan languages...</p>
-            <a href="https://sunbird.ai/2021/06/11/parallel-text-language-corpus-dataset-for-key-ugandan-languages/" class="btn btn-primary btn-md mt-3">Read more</a>
-          </div>
-        </div>
-      </div>
-      <div class="container px-5 pt-5">
-        <div class="row gx-5">
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h2 class="fw-bolder mb-0" style="color: #282850;">Languages our
-              system can translate.
-            </h2>
-          </div>
-          <div class="col-lg-8">
-            <div class="row gx-5 row-cols-1 row-cols-md-2">
-              <div class="col mb-5 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">Luganda</h2>
-                <p class="mb-0">The Ganda language or Luganda is a Bantu language spoken in the African
-                  Great Lakes region.
-                </p>
-              </div>
-              <div class="col mb-5 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">English</h2>
-                <p class="mb-0">English is widely considered to be the lingua franca of the world and is the
-                  standard language in a wide variety of fields.</p>
-              </div>
-              <div class="col mb-5 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">Lugbara</h2>
-                <p class="mb-0">Language of the Lugbara people. It is spoken in the West Nile region in
-                  northwestern Uganda.</p>
-              </div>
-              <div class="col mb-5 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">Runyakitara</h2>
-                <p class="mb-0">A standardized language based on four closely related languages of western
-                  Uganda: Nyoro or Runyoro. Kiga (Chiga) or Rukiga. Nkore or Runyankole.</p>
-              </div>
-              <div class="col mb-5 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">Acholi</h2>
-                <p class="mb-0">A Southern Luo dialect spoken by the Acholi people in the districts of Gulu,
-                  Kitgum and Pader in northern Uganda.</p>
-              </div>
-              <div class="col mb-md-0 h-100">
-                <h2 class="fw-bold h5" style="color: #282850;">Ateso</h2>
-                <p class="mb-0">An Eastern Nilotic language spoken by the Iteso people of Uganda and Kenya.
-                  It is part of the Teso–Turkana language cluster.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
   </main>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
 
   <!-- Vendor JS Files -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

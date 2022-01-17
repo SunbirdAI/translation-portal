@@ -1,0 +1,13 @@
+.mdc-card {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: 500px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    transition: .6s all cubic-bezier(0.4,0,0.2,1);
+    width: auto;
+}
