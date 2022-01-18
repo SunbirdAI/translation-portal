@@ -22,6 +22,12 @@ async function sendData() {
 
     //getting data to translate
     let dataToTranslate = document.getElementById("sourceData").value;
+    let isValid = validateText(dataToTranslate);
+    if (isValid === false){
+     errorMessage(); 
+     return; 
+    }
+    //alert(isValid);
 
     //getting the model
     let model = ""
@@ -132,6 +138,25 @@ function sendFeedback(feedback) {
         }
     });
 }
+
+
+function validateText(str2) {
+        if(str2==='' || !str2)return false;
+        return (!(/[^A-Za-z0-9 ,.":;?]/).test(str2));
+    }
+ function errorMessage() {
+        var error = document.getElementById("error")
+        if (isNaN(document.getElementById("sourceData").value)) 
+        {
+              
+            // Changing content and color of content
+            error.textContent = "Please enter valid text"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
+        }
+    }
+
 
 const posFeedback = document.getElementById("feedback-good");
 const negFeedback = document.getElementById("feedback-bad");
