@@ -142,6 +142,7 @@ function sendFeedback(feedback) {
 
 function validateText(str2) {
         if(str2==='' || !str2)return false;
+        document.getElementById("error").textContent ="";
         return (!(/[^A-Za-z0-9 ,.":;?]/).test(str2));
     }
  function errorMessage() {
