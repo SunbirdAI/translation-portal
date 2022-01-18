@@ -139,7 +139,7 @@
                 <label for="languageFrom">From</label>
               </div>
               <div class="form-floating">
-                <textarea class="form-control translation-text" id="sourceData" style="height: 200px; resize: none;"></textarea>
+                <textarea class="form-control translation-text" id="sourceData" style="height: 200px;" onkeyup="validateText()" maxlength="1000"></textarea>
                 <label for="sourceData">Enter text</label>
                 <span id="error"></span>
               </div>
