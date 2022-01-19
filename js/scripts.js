@@ -143,7 +143,7 @@ function sendFeedback(feedback) {
 function validateText(str2) {
         if(str2==='' || !str2)return false;
         document.getElementById("error").textContent ="";
-        return (!(/[^A-Za-z0-9 ,.":;?]/).test(str2));
+        return (!(/[^A-Za-z0-9 ,.'":;!?]/).test(str2));
     }
  function errorMessage() {
         var error = document.getElementById("error")
@@ -151,7 +151,7 @@ function validateText(str2) {
         {
               
             // Changing content and color of content
-            error.textContent = "Please enter valid text"
+            error.textContent = "Please enter text below 1000 characters and without special characters"
             error.style.color = "red"
         } else {
             error.textContent = ""
