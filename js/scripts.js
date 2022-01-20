@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv');
 
 AWS.config.update({
     region: 'eu-west-1',
@@ -163,6 +163,12 @@ function errorMessage() {
         error.textContent = '';
     }
 }
+
+document.getElementById('translateBtn').addEventListener('click', sendData);
+document.getElementById('languageTo').addEventListener('change', sendData);
+document.getElementById('sourceData').addEventListener('keyup', validateText);
+document.getElementById('languageFrom')
+    .addEventListener('change', updateTargetLanguages);
 
 const posFeedback = document.getElementById('feedback-good');
 const negFeedback = document.getElementById('feedback-bad');
