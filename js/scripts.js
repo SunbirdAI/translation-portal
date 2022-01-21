@@ -1,9 +1,9 @@
 require('dotenv');
 
 AWS.config.update({
-    region: 'eu-west-1',
-    accessKeyId: `${process.env.accessKeyId}`,
-    secretAccessKey: `${process.env.secretAccessKey}`
+    region: `${process.env.AWS_DEFAULT_REGION}`,
+    accessKeyId: `${process.env.AWS_ACCESS_KEY}`,
+    secretAccessKey: `${process.env.AWS_SECRET_KEY}`
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
