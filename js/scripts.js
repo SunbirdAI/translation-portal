@@ -48,7 +48,7 @@ async function sendData() {
 
     let dataObj = {
         model: model,
-        inputs: dataToTranslate
+        inputs: dataToTranslate.trim()
     };
 
     await postData(dataObj)
