@@ -1,0 +1,30 @@
+name: Build and deploy to GitHub pages
+
+on:
+  push:
+    branches: 
+      - main
+
+env:
+  AWS_DEFAULT_REGION: eu-west-1
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+
+# jobs:
+#   build-test-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Set-up Node
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: "10.x"
+#       - run: npm install
+#       - run: npm run build
+#       - run: npm test
+#       - name: Deploy
+#         uses: crazy-max/ghaction-github-pages@v1
+#         with:
+#           target_branch: gh-pages
+#           build_dir: build
