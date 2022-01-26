@@ -1,8 +1,8 @@
-AWS.config.update({
+/*AWS.config.update({
     region: 'eu-west-1',
     accessKeyId: 'fakeMyKeyId', // add this as env var
     secretAccessKey: 'fakeSecretAccessKey' // add this as env var
-});
+});*/
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -120,28 +120,34 @@ function updateTargetLanguages() {
     }
 }
 
-function sendFeedback(feedback) {
+async function sendFeedback(feedback) {
     if ($('#sourceData').val() == '' || $('#translatedData').val() == '') {
         return;
     }
-    var params = {
-        TableName: 'TranslationFeedback',
-        Item: {
-            Timestamp: Date.now(),
-            SourceText: $('#sourceData').val(),
-            LanguageFrom: $('#languageFrom').val(),
-            LanguageTo: $('#languageTo').val(),
-            TranslatedText: $('#translatedData').val(),
-            Feedback: feedback
-        }
-    };
-    docClient.put(params, function (err, data) {
-        if (err) {
-            console.log(JSON.stringify(err));
-        } else {
-            console.log(JSON.stringify(data));
-        }
-    });
+
+            var Timestamp = Date.now();
+            var SourceText = document.getElementById('sourceData').value;
+            var LanguageFrom = document.getElementById('languageFrom').value;
+            var LanguageTo = document.getElementById('languageTo').value;
+            var TranslatedText = document.getElementById('translatedData').value;
+            var Feedback = feedback;
+
+            fetch( 'https://l0jsqxhmgl.execute-api.us-east-1.amazonaws.com/prod/feedback',  {
+                method: 'POST',
+                body: JSON.stringify({
+                    "Timestamp" : Timestamp,
+                    "feedback" : feedback,
+                    "SourceText" : SourceText,
+                    "LanguageFrom" : LanguageFrom,
+                    "LanguageTo" : LanguageTo,
+                    "TranslatedText" : TranslatedText
+                })
+            })
+            .then(response => response.json())
+            .then((response) => {
+                console.log(response);
+            });
+
 }
 
 function validateText(text) {
@@ -177,3 +183,4 @@ negFeedback.addEventListener(
     },
     false
 );
+
