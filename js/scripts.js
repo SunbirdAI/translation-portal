@@ -11,7 +11,7 @@ async function sendData() {
     //getting language to
     let selectLanguageTo = document.getElementById('languageTo');
     let selectLanguageToText =
-    selectLanguageTo.options[selectLanguageTo.selectedIndex].value;
+        selectLanguageTo.options[selectLanguageTo.selectedIndex].value;
 
     //getting data to translate
     let dataToTranslate = document.getElementById('sourceData').value;
@@ -44,13 +44,13 @@ async function sendData() {
     };
 
     await postData(dataObj)
-    .then((data) => {
-        console.log(data);
-        dataFromModel = data[0]['generated_text'];
-    })
-    .catch((err) => {
-        console.log('error', err);
-    });
+        .then((data) => {
+            console.log(data);
+            dataFromModel = data[0]['generated_text'];
+        })
+        .catch((err) => {
+            console.log('error', err);
+        });
     document.getElementById('translatedData').value = `${dataFromModel}`;
     $('#translation-in-progress-spinner').hide();
 }
@@ -72,7 +72,7 @@ async function postData(data) {
     const response = await fetch(
         'https://8c8jirboi0.execute-api.eu-west-1.amazonaws.com/prod/',
         requestOptions
-        );
+    );
     return response.json();
 }
 
@@ -87,11 +87,11 @@ $('#sourceData').keypress(function (e) {
 // Update the target language options depending on the source language
 var preferredNonEnglishTarget = $('#languageTo').val();
 var nonEnglishOptions = [
-['Acholi', 'ach'],
-['Ateso', 'teo'],
-['Luganda', 'lug'],
-['Lugbara', 'lgg'],
-['Runyankole', 'nyn']
+    ['Acholi', 'ach'],
+    ['Ateso', 'teo'],
+    ['Luganda', 'lug'],
+    ['Lugbara', 'lgg'],
+    ['Runyankole', 'nyn']
 ];
 
 function updateTargetLanguages() {
@@ -102,7 +102,7 @@ function updateTargetLanguages() {
             isPreferred = option[1] == preferredNonEnglishTarget;
             targetSelect.append(
                 new Option(option[0], option[1], isPreferred, isPreferred)
-                );
+            );
         }
     } else {
         // Remember what the target language was before clearing the options.
@@ -122,24 +122,25 @@ async function sendFeedback(feedback) {
     var LanguageFrom = document.getElementById('languageFrom').value;
     var LanguageTo = document.getElementById('languageTo').value;
     var TranslatedText = document.getElementById('translatedData').value;
-    
 
-    fetch( 'https://l0jsqxhmgl.execute-api.us-east-1.amazonaws.com/prod/feedback',  {
-        method: 'POST',
-        body: JSON.stringify({
-            "Timestamp" : Timestamp,
-            "feedback" : feedback,
-            "SourceText" : SourceText,
-            "LanguageFrom" : LanguageFrom,
-            "LanguageTo" : LanguageTo,
-            "TranslatedText" : TranslatedText
-        })
-    })
-    .then(response => response.json())
-    .then((response) => {
-        console.log(response);
-    });
-
+    fetch(
+        'https://l0jsqxhmgl.execute-api.us-east-1.amazonaws.com/prod/feedback',
+        {
+            method: 'POST',
+            body: JSON.stringify({
+                Timestamp: Timestamp,
+                feedback: feedback,
+                SourceText: SourceText,
+                LanguageFrom: LanguageFrom,
+                LanguageTo: LanguageTo,
+                TranslatedText: TranslatedText
+            })
+        }
+    )
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response);
+        });
 }
 
 function validateText(text) {
@@ -153,7 +154,7 @@ function errorMessage() {
     if (isNaN(document.getElementById('sourceData').value)) {
         // Changing content and color of content
         error.textContent =
-        'Please enter text below 1000 characters and without special characters';
+            'Please enter text below 1000 characters and without special characters';
         error.style.color = 'red';
     } else {
         error.textContent = '';
@@ -168,12 +169,11 @@ posFeedback.addEventListener(
         sendFeedback('Good');
     },
     false
-    );
+);
 negFeedback.addEventListener(
     'click',
     function () {
         sendFeedback('Bad');
     },
     false
-    );
-
+);
