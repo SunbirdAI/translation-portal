@@ -125,7 +125,7 @@
 }
 
 .content {
-  padding: 0 18px;
+  /* padding: 0 18px; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -176,7 +176,41 @@
             </div>
             <button class="collapsible">Common Phrases</button>
             <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'most_popular')" id="defaultOpen">Most Popular</button>
+                <button class="tablinks" onclick="openCity(event, 'greetings')">Greetings</button>
+                <button class="tablinks" onclick="openCity(event, 'socials')">Socials</button>
+              </div>
+              
+              <div id="most_popular" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Most Popular</h3>
+                <p>Hello</p>
+                <p>Hey</p>
+                <p>How do I get to Kampala?</p>
+                <table>
+
+                </table>
+              </div>
+              
+              <div id="greetings" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Greetings</h3>
+                <p>Good morning</p>
+                <p>How is your day?</p>
+                <p>Good night</p>
+              </div>
+              
+              <div id="socials" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Socials</h3>
+                <h3>Greetings</h3>
+                <p>What is your name?</p>
+                <p>Where do you work?</p>
+                <p>Happy Birthday!</p>              
+              
+              </div>
+              
             </div>
             <div class="d-flex justify-content-between my-3">
               <button type="button" class="btn btn-primary btn-lg" onclick="sendData()">
