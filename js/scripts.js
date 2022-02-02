@@ -226,3 +226,11 @@ function openCity(evt, cityName) {
   
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
+
+  // Automatic copy from pressed button to the textarea
+  function copyToClipboard(elementId) {
+    var text = document.getElementById(elementId).innerHTML;
+    let textarea = document.getElementById("sourceData");
+    textarea.innerHTML = text;
+    textarea.focus();
+  }
