@@ -69,4 +69,9 @@
   }
   
   .topright:hover {color: red;}
-  
+
+  .tabcontent button{
+    /* background-color: red; */
+    border-radius: 8px;
+    border-color: #FFA500;
+  }
