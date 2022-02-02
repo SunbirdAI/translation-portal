@@ -210,7 +210,7 @@ for (i = 0; i < coll.length; i++) {
 }
 
 // Tab lists
-function openCity(evt, cityName) {
+function openPhraseBook(evt, phraseCategory) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -220,7 +220,7 @@ function openCity(evt, cityName) {
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(phraseCategory).style.display = "block";
     evt.currentTarget.className += " active";
   }
   
