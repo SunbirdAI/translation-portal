@@ -95,6 +95,7 @@ var nonEnglishOptions = [
 ];
 
 function updateTargetLanguages() {
+    show_phrasebook();
     targetSelect = $('#languageTo');
     if ($('#languageFrom').val() == 'en') {
         targetSelect.empty();
@@ -234,3 +235,18 @@ function openPhraseBook(evt, phraseCategory) {
     textarea.innerHTML = text;
     textarea.focus();
   }
+
+// show Phrasebook only when selected language is English
+
+function show_phrasebook(){
+    //getting language from the selection.
+    let selectLanguageFrom = document.getElementById('languageFrom');
+
+    if ($('#languageFrom').val() == 'mul') {
+        document.getElementById('phrasebook-tab').style.visibility = 'hidden';
+    } 
+    else{
+        document.getElementById('phrasebook-tab').style.visibility = 'visible';
+    }
+
+}
