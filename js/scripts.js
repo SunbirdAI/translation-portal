@@ -15,7 +15,9 @@ async function sendData() {
 
     //getting data to translate
     let dataToTranslate = document.getElementById('sourceData').value;
-    let isValid = (validateText(dataToTranslate.toLowerCase()) && aboveMinLength(dataToTranslate));
+    let isValid =
+        validateText(dataToTranslate.toLowerCase()) &&
+        aboveMinLength(dataToTranslate);
     if (isValid === false) {
         msg =
             'Please enter text between 5 and 1000 characters and without special characters';
@@ -160,10 +162,12 @@ function validateText(text) {
 }
 
 function containsHelloHi(text) {
-    return (text.includes(' hello') || text.includes(' hi'));
+    return (
+        text.includes(' hello') || text.includes(' hi') || text.includes(' hey')
+    );
 }
 
-function aboveMinLength(text){
+function aboveMinLength(text) {
     return text.length > 5;
 }
 
@@ -187,6 +191,7 @@ posFeedback.addEventListener(
     },
     false
 );
+
 negFeedback.addEventListener(
     'click',
     function () {
@@ -252,8 +257,7 @@ function copyToClipboard(elementId) {
     textarea.focus();
 }
 
-// show Phrasebook only when selected language is English
-
+// show phrasebook only when selected language is English
 function show_phrasebook() {
     //getting language from the selection.
     let selectLanguageFrom = document.getElementById('languageFrom');
