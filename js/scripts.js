@@ -15,16 +15,19 @@ async function sendData() {
 
     //getting data to translate
     let dataToTranslate = document.getElementById('sourceData').value;
-    let isValid = validateText(dataToTranslate.toLowerCase());
+    let isValid =
+        validateText(dataToTranslate.toLowerCase()) &&
+        aboveMinLength(dataToTranslate);
     if (isValid === false) {
         msg =
-            'Please enter text below 1000 characters and without special characters';
+            'Please enter text between 5 and 1000 characters and without special characters';
         errorMessage(msg);
         return;
     }
-    if (containsHello(dataToTranslate)) {
-        msg = `Note: There is no direct translation of "hello" to local languages. 
-               Would you like to search instead for "how are you" or "I am happy to see you?"`;
+
+    if (containsHelloHi(dataToTranslate.toLowerCase())) {
+        msg = `Note: There is no direct translation of "hello" and "hi" in most Ugandan local languages. 
+               Would you like to try some of the common phrases below instead?`;
         errorMessage(msg);
         return;
     }
@@ -158,12 +161,14 @@ function validateText(text) {
     return !/[^A-Za-z0-9 ,.'":;!?]/.test(text);
 }
 
-function containsHello(text) {
-    if (text.includes('hello') || text.includes('hi')) {
-        return true;
-    } else {
-        return false;
-    }
+function containsHelloHi(text) {
+    return (
+        text.includes(' hello') || text.includes(' hi') || text.includes(' hey')
+    );
+}
+
+function aboveMinLength(text) {
+    return text.length > 5;
 }
 
 function errorMessage(msg) {
@@ -186,6 +191,7 @@ posFeedback.addEventListener(
     },
     false
 );
+
 negFeedback.addEventListener(
     'click',
     function () {
@@ -251,8 +257,7 @@ function copyToClipboard(elementId) {
     textarea.focus();
 }
 
-// show Phrasebook only when selected language is English
-
+// show phrasebook only when selected language is English
 function show_phrasebook() {
     //getting language from the selection.
     let selectLanguageFrom = document.getElementById('languageFrom');
