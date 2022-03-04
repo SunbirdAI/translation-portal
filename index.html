@@ -74,6 +74,7 @@
 
     textarea {
       font-size: 30px;
+      resize: none;
     }
 
     .nav-link {
@@ -94,7 +95,44 @@
       font-size: 0.9em;
       color: rgb(108, 117, 125);
     }
-  </style>
+    
+    .collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  /* padding: 0 18px; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+</style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -131,10 +169,56 @@
               </div>
               <div class="form-floating">
                 <textarea class="form-control translation-text" id="sourceData" style="height: 200px;"
-                  onkeyup="validateText()" maxlength="1000"></textarea>
+                  onkeyup="validateText()" maxlength="1500"></textarea>
                 <label for="sourceData">Enter text</label>
                 <span id="error"></span>
               </div>
+            </div>
+            <button class="collapsible" id="phrasebook-tab">Common Phrases</button>
+            <div class="content">
+              <div class="tab">
+                <button class="tablinks" onclick="openPhraseBook(event, 'most_popular')" id="defaultOpen">Most Popular</button>
+                <button class="tablinks" onclick="openPhraseBook(event, 'greetings')">Greetings</button>
+                <button class="tablinks" onclick="openPhraseBook(event, 'socials')">Socials</button>
+              </div>
+              
+              <div id="most_popular" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                
+                <p id="mpopular1">How can I help you?</p>
+                <p id="mpopular2">When is your birthday?</p>
+                <p id="mpopular3">How do I get to Kampala?</p>
+              
+                <button onclick="copyToClipboard('mpopular1')">How can I help you?</button>
+                <button onclick="copyToClipboard('mpopular2')">When is your birthday?</button>
+                <button onclick="copyToClipboard('mpopular3')">How do I get to Kampala</button>
+              </div>
+              
+              <div id="greetings" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <p id="greetings1">Nice to meet you</p>
+                <p id="greetings2">How is your day?</p>
+                <p id="greetings3">Good night</p>
+                
+
+                <button onclick="copyToClipboard('greetings1')">Nice to meet you</button>
+                <button onclick="copyToClipboard('greetings2')">How is your day?</button>
+                <button onclick="copyToClipboard('greetings3')">Wishing you a good night</button>
+
+              </div>
+              
+              <div id="socials" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <p id="socials1">What is your name?</p>
+                <p id="socials2">Where do you work?</p>
+                <p id="socials3">Happy Birthday!</p>
+              
+                <button onclick="copyToClipboard('socials1')">What is your name</button>
+                <button onclick="copyToClipboard('socials2')">Where do you work?</button>
+                <button onclick="copyToClipboard('socials3')">Happy Birthday!</button>
+
+              </div>
+              
             </div>
             <div class="d-flex justify-content-between my-3">
               <button type="button" class="btn btn-primary btn-lg" onclick="sendData()">
@@ -171,6 +255,7 @@
             <div class="to-microsite mt-3">
               Find out more about our translation project <a href="https://sunbird.ai/portfolio/african-language/" target="_blank">here</a>
             </div>
+
             <br>
           </div>
         </div>

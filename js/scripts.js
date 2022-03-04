@@ -15,9 +15,20 @@ async function sendData() {
 
     //getting data to translate
     let dataToTranslate = document.getElementById('sourceData').value;
-    let isValid = validateText(dataToTranslate);
+    let isValid =
+        validateText(dataToTranslate.toLowerCase()) &&
+        aboveMinLength(dataToTranslate);
     if (isValid === false) {
-        errorMessage();
+        msg =
+            'Please enter text between 20 and 1000 characters and without special characters';
+        errorMessage(msg);
+        return;
+    }
+
+    if (containsHelloHi(dataToTranslate.toLowerCase())) {
+        msg = `Note: There is no direct translation of "hello", "hey" or "hi" in most Ugandan local languages. 
+               Would you like to try some of the common phrases below instead?`;
+        errorMessage(msg);
         return;
     }
 
@@ -95,6 +106,7 @@ var nonEnglishOptions = [
 ];
 
 function updateTargetLanguages() {
+    show_phrasebook();
     targetSelect = $('#languageTo');
     if ($('#languageFrom').val() == 'en') {
         targetSelect.empty();
@@ -149,12 +161,21 @@ function validateText(text) {
     return !/[^A-Za-z0-9 ,.'":;!?]/.test(text);
 }
 
-function errorMessage() {
+function containsHelloHi(text) {
+    return (
+        text.includes(' hello') || text.includes(' hi') || text.includes(' hey')
+    );
+}
+
+function aboveMinLength(text) {
+    return text.length > 20;
+}
+
+function errorMessage(msg) {
     var error = document.getElementById('error');
     if (isNaN(document.getElementById('sourceData').value)) {
         // Changing content and color of content
-        error.textContent =
-            'Please enter text below 1000 characters and without special characters';
+        error.textContent = msg;
         error.style.color = 'red';
     } else {
         error.textContent = '';
@@ -170,6 +191,7 @@ posFeedback.addEventListener(
     },
     false
 );
+
 negFeedback.addEventListener(
     'click',
     function () {
@@ -177,3 +199,72 @@ negFeedback.addEventListener(
     },
     false
 );
+
+//Collapsible
+var coll = document.getElementsByClassName('collapsible');
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener('click', function () {
+        this.classList.toggle('active');
+        var content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    });
+}
+
+var coll = document.getElementsByClassName('collapsible');
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener('click', function () {
+        this.classList.toggle('active');
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    });
+}
+
+// Tab lists
+function openPhraseBook(evt, phraseCategory) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+    }
+    tablinks = document.getElementsByClassName('tablinks');
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(' active', '');
+    }
+    document.getElementById(phraseCategory).style.display = 'block';
+    evt.currentTarget.className += ' active';
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById('defaultOpen').click();
+
+// Automatic copy from pressed button to the textarea
+function copyToClipboard(elementId) {
+    var text = document.getElementById(elementId).innerHTML;
+    let textarea = document.getElementById('sourceData');
+    textarea.innerHTML = text;
+    textarea.focus();
+}
+
+// show phrasebook only when selected language is English
+function show_phrasebook() {
+    //getting language from the selection.
+    let selectLanguageFrom = document.getElementById('languageFrom');
+
+    if ($('#languageFrom').val() == 'mul') {
+        document.getElementById('phrasebook-tab').style.visibility = 'hidden';
+    } else {
+        document.getElementById('phrasebook-tab').style.visibility = 'visible';
+    }
+}
