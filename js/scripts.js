@@ -20,7 +20,7 @@ async function sendData() {
         aboveMinLength(dataToTranslate);
     if (isValid === false) {
         msg =
-            'Please enter text between 20 and 1000 characters and without special characters';
+            'Please enter text between 15 and 1500 characters and without special characters';
         errorMessage(msg);
         return;
     }
@@ -168,7 +168,7 @@ function containsHelloHi(text) {
 }
 
 function aboveMinLength(text) {
-    return text.length > 20;
+    return text.length > 15;
 }
 
 function errorMessage(msg) {
