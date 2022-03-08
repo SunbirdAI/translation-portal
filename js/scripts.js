@@ -20,13 +20,13 @@ async function sendData() {
         aboveMinLength(dataToTranslate);
     if (isValid === false) {
         msg =
-            'Please enter text between 5 and 1000 characters and without special characters';
+            'Please enter text between 20 and 1000 characters and without special characters';
         errorMessage(msg);
         return;
     }
 
     if (containsHelloHi(dataToTranslate.toLowerCase())) {
-        msg = `Note: There is no direct translation of "hello" and "hi" in most Ugandan local languages. 
+        msg = `Note: There is no direct translation of "hello", "hey" or "hi" in most Ugandan local languages. 
                Would you like to try some of the common phrases below instead?`;
         errorMessage(msg);
         return;
@@ -168,7 +168,7 @@ function containsHelloHi(text) {
 }
 
 function aboveMinLength(text) {
-    return text.length > 5;
+    return text.length > 20;
 }
 
 function errorMessage(msg) {
