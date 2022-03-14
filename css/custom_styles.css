@@ -49,10 +49,7 @@
     border-top: none;
   }
 
-  #most_popular p {
-    display: None;
-  }
-  #greetings p {
+  #random p {
     display: None;
   }
   #socials p {
@@ -68,8 +65,9 @@
   
   .topright:hover {color: red;}
 
-  .tabcontent button{
+  .tabcontent button {
     /* background-color: red; */
     border-radius: 8px;
     border-color: #FFA500;
+    margin-bottom: 0.3rem;
   }

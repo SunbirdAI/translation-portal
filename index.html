@@ -174,48 +174,42 @@
                 <span id="error"></span>
               </div>
             </div>
-            <button class="collapsible" id="phrasebook-tab">Common Phrases</button>
+            <button class="collapsible" id="phrasebook-tab">Sample Phrases</button>
             <div class="content">
               <div class="tab">
-                <button class="tablinks" onclick="openPhraseBook(event, 'most_popular')" id="defaultOpen">Most Popular</button>
-                <button class="tablinks" onclick="openPhraseBook(event, 'greetings')">Greetings</button>
-                <button class="tablinks" onclick="openPhraseBook(event, 'socials')">Socials</button>
+                <button class="tablinks" onclick="openPhraseBook(event, 'random')" id="defaultOpen">Random</button>
+                <button class="tablinks" onclick="openPhraseBook(event, 'socials')">Greetings & Socials</button>
               </div>
               
-              <div id="most_popular" class="tabcontent">
+              <div id="random" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
                 
-                <p id="mpopular1">How can I help you?</p>
-                <p id="mpopular2">When is your birthday?</p>
-                <p id="mpopular3">How do I get to Kampala?</p>
+                <p id="random1">During the coronavirus outbreak, people began making masks out of clothes</p>
+                <p id="random2">What reasons do youths give for dropping out of school?</p>
+                <p id="random3">Help the needy members in society.</p>
+                <p id="random4">What causes some children not to pass well in school?</p>
+                <p id="random5">Workers can now choose to work from home or come to the office.</p>
+                <p id="random6">Banks will be open for only six hours a day.</p>
+                <p id="random7">Everyone needs the freedom to freely express their ideas.</p>
               
-                <button onclick="copyToClipboard('mpopular1')">How can I help you?</button>
-                <button onclick="copyToClipboard('mpopular2')">When is your birthday?</button>
-                <button onclick="copyToClipboard('mpopular3')">How do I get to Kampala</button>
-              </div>
-              
-              <div id="greetings" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                <p id="greetings1">Nice to meet you</p>
-                <p id="greetings2">How is your day?</p>
-                <p id="greetings3">Good night</p>
-                
+                <button onclick="copyToClipboard('random1')">During the coronavirus outbreak, people began making masks out of clothes</button>
+                <button onclick="copyToClipboard('random2')">What reasons do youths give for dropping out of school?</button>
+                <button onclick="copyToClipboard('random3')">Help the needy members in society.</button>
+                <button onclick="copyToClipboard('random4')">What causes some children not to pass well in school?</button>
+                <button onclick="copyToClipboard('random5')">Workers can now choose to work from home or come to the office.</button>
+                <button onclick="copyToClipboard('random6')">Banks will be open for only six hours a day.</button>
+                <button onclick="copyToClipboard('random7')">Everyone needs the freedom to freely express their ideas.</button>
+              </div> 
 
-                <button onclick="copyToClipboard('greetings1')">Nice to meet you</button>
-                <button onclick="copyToClipboard('greetings2')">How is your day?</button>
-                <button onclick="copyToClipboard('greetings3')">Wishing you a good night</button>
-
-              </div>
-              
               <div id="socials" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                <p id="socials1">What is your name?</p>
-                <p id="socials2">Where do you work?</p>
-                <p id="socials3">Happy Birthday!</p>
+                <p id="socials1">Good morning, how are you doing?</p>
+                <p id="socials2">When can we meet and have a chat?</p>
+                <p id="socials3">I hope to see you again soon</p>
               
-                <button onclick="copyToClipboard('socials1')">What is your name</button>
-                <button onclick="copyToClipboard('socials2')">Where do you work?</button>
-                <button onclick="copyToClipboard('socials3')">Happy Birthday!</button>
+                <button onclick="copyToClipboard('socials1')">Good morning, how are you doing?</button>
+                <button onclick="copyToClipboard('socials2')">When can we meet and have a chat?</button>
+                <button onclick="copyToClipboard('socials3')">I hope to see you again soon</button>
 
               </div>
               
