@@ -163,7 +163,7 @@ function validateText(text) {
 
 function containsHelloHi(text) {
     return (
-        text.includes(' hello') || text.includes(' hi') || text.includes(' hey')
+        text.includes(' hello ') || text.includes(' hi ') || text.includes(' hey ')
     );
 }
 
