@@ -168,7 +168,7 @@ function containsHelloHi(text) {
 }
 
 function aboveMinLength(text) {
-    return text.length > 15;
+    return text.length >= 15;
 }
 
 function errorMessage(msg) {
