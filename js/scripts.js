@@ -27,7 +27,7 @@ async function sendData() {
 
     if (containsHelloHi(dataToTranslate.toLowerCase())) {
         msg = `Note: There is no direct translation of "hello", "hey" or "hi" in most Ugandan local languages. 
-               Would you like to try some of the common phrases below instead?`;
+               Would you like to try some of the sample phrases below instead?`;
         errorMessage(msg);
         return;
     }
