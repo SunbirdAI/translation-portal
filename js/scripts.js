@@ -162,8 +162,13 @@ function validateText(text) {
 }
 
 function containsHelloHi(text) {
+    // TEMPORARY FIX for hello/hey/hi until the translation model is retrained
+    // The actual words hello/hey/hi are being used here because a single regex does not cover the
+    // different ways we want to filter out these three words and causes errors when sone of them
+    // show up within other words, for example 'hi' in "this"
     return (
-        text.includes(' hello ') || text.includes(' hi ') || text.includes(' hey ')
+        text.includes(' hello ') || text.includes('hello ') || text.includes(' hello') ||
+        text.includes(' hi ') || text.includes(' hey ')
     );
 }
 
